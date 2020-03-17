@@ -14,7 +14,7 @@ public class FreeMarkerConfig {
         FreeMarkerConfigurationFactoryBean freemarkerConfiguration = new FreeMarkerConfigurationFactoryBean();
         freemarkerConfiguration.setTemplateLoaderPath("classpath:/freemarker/");
         freemarkerConfiguration.setDefaultEncoding("utf-8");
-
+//hhh
         Properties properties = new Properties();
         properties.put("template_update_delay", "30");
         properties.put("default_encoding", "UTF-8");
