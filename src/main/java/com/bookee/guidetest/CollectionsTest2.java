@@ -31,6 +31,7 @@ public class CollectionsTest2 {
         //统计元素出现的次数
         System.out.println(Collections.frequency(arrayList,-3));
 
+        //用指定元素替换list中所有元素
         Collections.fill(arrayList,5);
         System.out.println(arrayList);
     }
