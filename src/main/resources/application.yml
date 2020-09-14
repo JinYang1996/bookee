@@ -5,8 +5,8 @@ mybatis:
   type-aliases-package: com.bookee.bookee.entity
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:13306/pmsdev?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:23306/bookee?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
-    password: 123456
+    password: 123456789
 
