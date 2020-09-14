@@ -16,6 +16,6 @@ public class UserService extends ServiceImpl<UserMapper, UserEo> {
     }
 
     public static void main(String[] args) {
-        org.apache.commons.lang3.StringUtils.stripEnd
+//        org.apache.commons.lang3.StringUtils.stripEnd
     }
 }
