@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CollectionTest {
+public class CollectionsTest1 {
     public static void main(String[] args) {
         List<Integer> arrayList = new ArrayList<>();
         arrayList.add(-1);
