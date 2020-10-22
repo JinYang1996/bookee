@@ -1,7 +1,10 @@
 package com.bookee.guidetest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArraysTest {
 
@@ -120,6 +123,77 @@ public class ArraysTest {
 		}
 		// 换行
 		System.out.println();
+		
+		
+		//数组转List集合
+		String[] arr = {"aa","bb","dd"};
+		List<String> list = Arrays.asList(arr);
+		//或者使用 
+		List<String> list2 = Arrays.asList("aa","bb","dd");
+		System.out.println(list2);
+		
+		//Arrays.asList()将数组转换为集合后，底层其实还是数组，不能使用其修改集合相关方法
+		//它的add/remove/clear方法都会抛出UnSupportedOperationException异常
+		//Arrays.asList()体现的是适配器模式，只是转换接口，后台的数据仍是数组
+		try {
+			list.add("rrr");
+			System.out.println(list.toString());
+		} catch (UnsupportedOperationException e1) {
+			System.out.println("this is UnsupportedOperationException!");
+		}
+		
+		int[] myArray = {1,5,3,2};
+		List myList = Arrays.asList(myArray);
+		System.out.println(myList.get(0));
+		System.out.println(myList.size());
+		try {
+			System.out.println(myList.get(1));
+		} catch (ArrayIndexOutOfBoundsException e1) {
+			System.out.println("this is ArrayIndexOutOfBoundsException!");
+		}
+		
+		int[] array = (int[])myList.get(0);
+		System.out.println(array[1]);
+		
+		//使用包装类型数组就可以解决问题
+		Integer[] myArray1 = {1,5,3,2};
+		List myList1 = Arrays.asList(myArray1);
+		System.out.println(myList1.get(0));
+		System.out.println(myList1.size());
+		System.out.println(myList1.get(1));
+		
+		//实现数组转List
+		//1、自己动手
+		Integer[] myArr = {3,7,4,1};
+		List myList2 = arrayToList(myArr);
+		System.out.println(myList2.get(1));
+		
+		//2、最简便的方法
+		List list5 = new ArrayList<>(Arrays.asList("rr","ee","vv"));
+		System.out.println(list5);
+		
+		//3、使用java8的stream
+		Integer[] myArray3 = {3,7,4,1};
+		List myList3 = Arrays.stream(myArray3).collect(Collectors.toList());
+		int[] myArray4 = {3,7,4,1};
+		List myList4 = Arrays.stream(myArray4).boxed().collect(Collectors.toList());
+		System.out.println(myList4);
+		
+		String [] sss = new String[]{
+			    "dog", "lazy", "a", "over", "jumps", "fox", "brown", "quick", "A"
+			};
+		List<String> myList5 = Arrays.asList(sss);
+		Collections.reverse(myList5);
+		System.out.println(myList5);
+//		String[] sass = myList.toArray(new String[myList.size()]);
+		System.out.println(sss);
 	}
-
+	
+	static <T> List<T> arrayToList(final T[] array){
+		final List<T> l = new ArrayList<T>(array.length);
+		for(final T s:array){
+			l.add(s);
+		}
+		return l;
+	}
 }
