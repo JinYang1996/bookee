@@ -20,7 +20,7 @@ public class FourNumAdd {
         	for(int j:B){
         		map.merge(i+j, 1, (v1,v2)->v1+1);
         	}
-        }
+        } 
         for(int k:C){
         	for(int l:D){
         		res += map.getOrDefault(-(k+l),0);
