@@ -9,4 +9,15 @@ spring:
     url: jdbc:mysql://localhost:23306/bookee?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
     password: 123456789
+my-profile:
+  name: java
+  email: 3932222@qq.com
+library:
+  location: 华为加油
+  books:
+    - name: 假如给我三天光明
+      content: 如果还能有三天
+    - name: 向天再借五百年
+      content: 向天再借五百年ss
+    
 
