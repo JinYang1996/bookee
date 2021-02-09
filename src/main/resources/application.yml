@@ -1,8 +1,10 @@
 server:
   port: 8090
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.bookee.bookee.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -19,5 +21,4 @@ library:
       content: 如果还能有三天
     - name: 向天再借五百年
       content: 向天再借五百年ss
-    
 

@@ -1,11 +1,14 @@
 package com.bookee.bookee.entity;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotations.TableName;
+
 import lombok.Data;
 
 @Data
 @TableName("caf_user")
-public class UserEo {
+public class UserEo implements Serializable{
     private String id;
     private String name;
 
