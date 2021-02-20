@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookee.bookee.entity.UserEo;
 import com.bookee.bookee.properities.LibraryProperities;
 import com.bookee.bookee.properities.WebSite;
+import com.bookee.bookee.service.IProductService;
 import com.bookee.bookee.service.MessageService;
 import com.bookee.bookee.service.UserService;
 import com.bookee.event.MessagePublisher;
@@ -28,9 +29,17 @@ public class UserController {
     
     @Autowired
     WebSite webSite;
+    
+    @Autowired
+    IProductService productService;
 
     @RequestMapping("selectOne")
     public List<UserEo> selectOne(UserEo userEo){
+    	userEo = userEo.toBuilder()
+    			.id("11111")
+    			.name("张三")
+    			.build();
+    	System.out.println(userEo.toString());
         return userService.selectOne(userEo);
     }
     
@@ -56,5 +65,15 @@ public class UserController {
     @RequestMapping("login")
     public String login(){
     	return "login";
+    }
+    
+    @RequestMapping("seckillProduct")
+    public String seckillProduct(Long productId){
+    	boolean flag = productService.seckillProduct(productId,1);
+    	if(flag){
+    		return "抢购成功";
+    	}else{
+    		return "抢购失败";
+    	}
     }
 }

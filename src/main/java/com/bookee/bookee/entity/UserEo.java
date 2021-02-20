@@ -4,10 +4,16 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @TableName("caf_user")
+@Builder(toBuilder=true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEo implements Serializable{
     private String id;
     private String name;
