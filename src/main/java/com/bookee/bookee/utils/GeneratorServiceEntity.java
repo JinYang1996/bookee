@@ -25,8 +25,8 @@ public class GeneratorServiceEntity {
     public void generateCode() {
         /*String packageName = "com.digitalchina.livable.modules";
         generateByTables(packageName, "live_door_device");*/
-        String packageName = "com.bookee.log";
-        generateByTables(packageName, "exc_log");
+        String packageName = "com.bookee.bookee.product";
+        generateByTables(packageName, "product");
     }
 
     /**
