@@ -15,8 +15,8 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		logger.error("----LogInterceptor-----preHandle");
-		logger.error("RequestURL:{}",request.getRequestURL());
+		logger.info("----LogInterceptor-----preHandle");
+		logger.info("RequestURL:{}",request.getRequestURL());
 		long startTime = System.currentTimeMillis();
 		request.setAttribute("startTime", startTime);
 		return true;
@@ -24,16 +24,16 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-		logger.error("----LogInterceptor-----postHandle");
-		logger.error("RequestURL:{}",request.getRequestURL());
+		logger.info("----LogInterceptor-----postHandle");
+		logger.info("RequestURL:{}",request.getRequestURL());
 	}
 
 	@Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-		logger.error("----LogInterceptor-----afterCompletion");
+		logger.info("----LogInterceptor-----afterCompletion");
 		long endTime = System.currentTimeMillis();
 		long startTime = (long) request.getAttribute("startTime");
-		logger.error("RequestURL:{}，该方法用时:{}",request.getRequestURL(),endTime-startTime);
+		logger.info("RequestURL:{}，该方法用时:{}",request.getRequestURL(),endTime-startTime);
 		
 	}
 }

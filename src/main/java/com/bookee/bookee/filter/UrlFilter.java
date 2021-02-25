@@ -28,11 +28,11 @@ public class UrlFilter implements Filter {
 			FilterChain filterChain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest)servletRequest;
 		String url = request.getRequestURI();
-		logger.error("进入urlFilter。。。。。");
+		logger.info("进入urlFilter。。。。。");
 		long startTime = System.currentTimeMillis();
 		filterChain.doFilter(servletRequest, servletResponse);
 		long endTime = System.currentTimeMillis();
-		logger.error("请求处理完毕，处理时间：{}",endTime-startTime);
+		logger.info("请求处理完毕，处理时间：{}",endTime-startTime);
 		
 	}
 

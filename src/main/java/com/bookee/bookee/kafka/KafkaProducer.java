@@ -42,7 +42,6 @@ public class KafkaProducer {
     }
 
     @GetMapping("/kafka/transcationMessage/{sendMessage}")
-    @Transactional(transactionManager = "kafkaTransactionManager",rollbackFor = Exception.class)
     public void sendMessage3(@PathVariable("sendMessage")String message){
         kafkaTemplate.executeInTransaction(operations->{
             operations.send("testtopic4",message).addCallback(
@@ -52,7 +51,7 @@ public class KafkaProducer {
                         log.error("消息发送失败");
                     }
             );
-            return 11;
+            throw new RuntimeException("111");
         });
     }
 }
